@@ -24,7 +24,7 @@
                         circleradius: 10,
                         legend: ["Value number one", "A second value", "And a third one",
                                  "Always give meaningful titles", "Don't you think?", "This legend rocks!"], 
-                        href: ["http://raphaeljs.com", "http://g.raphaeljs.com"]
+                        href: ["http://raphaeljs.com", "http://g.raphaeljs.com", "https://github.com/DmitryBaranovskiy/raphael"]
                 });
 
                 anim_radar.hover(function () {
@@ -50,8 +50,10 @@
                 });
 
                 anim_radar.click(function () {
-                    this.arm.stop();
-                    window.location.href = "";
+                    if (!this.arm || !this.arm.attrs || !this.arm.attrs.href) {
+                      this.arm.stop();
+                      window.location.href = "https://github.com/DmitryBaranovskiy/g.raphael";
+                    }
                 });
             };
         </script>
