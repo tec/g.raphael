@@ -1,21 +1,52 @@
-/*
- * Radar charts for g.Raphael 2.0
- * 
- * Copyright (c) 2012 Kevin Yank, Avalanche Technology Group
- * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
+/*!
+ * Radar charts for g.Raphael 0.51 - Charting library, based on Raphaël
  *
- * Based upon:
- * Radar charts for g.Raphael
+ * Copyright (c) 2009-2013
+ *   Silvan T. Golega, Pidoco GmbH
+ *   Kevin Yank, Avalanche Technology Group
+ *   Dmitry Baranovskiy (http://g.raphaeljs.com)
  *
- * Copyright (c) 2009 Silvan T. Golega
- * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
- * 
- * Developed for:
- * g.Raphael 2.0 - Charting library, based on Raphaël
- *
- * Copyright (c) 2009 Dmitry Baranovskiy (http://g.raphaeljs.com)
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
  */
+
+ /*
+ * radarchart method on paper
+ */
+/*\
+ * Paper.radarchart
+ [ method ]
+ **
+ * Creates a radar chart
+ **
+ > Parameters
+ **
+ - cx (number) x coordinate of the chart
+ - cy (number) y coordinate of the chart
+ - r (integer) radius of the chart
+ - values (array) values used to plot
+ - opts (object) options for the chart
+ o {
+ o helplines (integer) number of circular helper lines [default `5`]
+ o circleradius (number) radius of each data point [default `10`]
+ o stroke (string) color of the circle stroke in HTML color format [default `"#FFF"`]
+ o strokewidth (integer) width of the chart stroke [default `1`]
+ o meshcolor (string) color of the background mesh in HTML color format [default `"#FFF"`]
+ o meshwidth (integer) width of the background mesh [default `1`]
+ o href (array) urls to to set up clicks on chart slices
+ o legend (array) array containing strings that will be used in a legend. Other label options work if legend is defined.
+ o legendcolor (string) color of text in legend [default `"#000"`]
+ o legendothers (string) text that will be used in legend to describe options that are collapsed into 1 slice, because they are too small to render [default `"Others"`]
+ o legendmark (string) symbol used as a bullet point in legend that has the same colour as the chart slice [default `"circle"`]
+ o legendpos (string) position of the legend on the chart [default `"east"`]. Other options are `"north"`, `"south"`, `"west"`
+ o numbers (boolean) indicate whether to identify data points using ids (in the plot and in the legend) [default: `true`]
+ o numberscolor (string) color for the data point ids [`"#FFF"`]
+ o }
+ **
+ = (object) path element of the popup
+ > Usage
+ | r.radarchart(cx, cy, r, values, opts)
+ \*/
+
 (function() {
     function Radarchart(paper, cx, cy, r, values, opts) {
         opts = opts || {};
