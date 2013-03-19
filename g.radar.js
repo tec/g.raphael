@@ -93,7 +93,7 @@
             web.pointarray.push(arms[i].x, arms[i].y, "L");
         }
         web.pointarray.push(arms[0].x, arms[0].y);
-        web.path = paper.path(web.pointarray.join(',')).attr({stroke: opts.stroke, "stroke-width": opts.meshwidth, fill: opts.stroke, "fill-opacity": 0.4});
+        web.path = paper.path(web.pointarray.join(',')).attr({stroke: opts.stroke, "stroke-width": opts.strokewidth, fill: opts.stroke, "fill-opacity": 0.4});
             
         // draw the value points (and arms) as latest to make sure they are the topmost
         for (var i = 0; i < len; i++) {
