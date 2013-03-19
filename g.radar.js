@@ -106,6 +106,12 @@
             if(opts.numbers){
                 arms[i].number = paper.text(arms[i].x, arms[i].y+1, i+1).attr(chartinst.txtattr).attr({fill: opts.numberscolor, "text-anchor": "middle"});
             }
+            if (opts.href && opts.href[i]) {
+              arms[i].path.attr({ href: opts.href[i] });
+              arms[i].rest.attr({ href: opts.href[i] });
+              arms[i].point.attr({ href: opts.href[i] });
+              opts.numbers && arms[i].number.attr({ href: opts.href[i] });
+            }
             var cover = paper.set();
             cover.push(arms[i].path, arms[i].rest, arms[i].point);
             if (arms[i].number)
@@ -225,6 +231,11 @@
                 chart.labels[i].push(txt = paper.text(x + 20, h, labels[i] || values[i]).attr(chartinst.txtattr).attr({fill: opts.legendcolor || "#000", "text-anchor": "start"}));
                 if(opts.numbers){
                     chart.labels[i].push(paper.text(x + 5, h + 1, i + 1).attr(chartinst.txtattr).attr({fill: opts.numberscolor, "text-anchor": "middle"}));
+                }
+                if (opts.href && opts.href[i]) {
+                    for (var j = 0; j< chart.labels[i].length; j++) {
+                      chart.labels[i][j].attr({ href: opts.href[i] });
+                    }
                 }
                 covers[i].label = chart.labels[i];
                 h += txt.getBBox().height * 1.2;
